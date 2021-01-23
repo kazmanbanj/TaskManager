@@ -9,12 +9,67 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('task.main')->with('tasks', Task::all());
+        $tasks = Task::all();
+        return view('task.main')->with('tasks', $tasks);
     }
 
-    public function show($taskId)
+    public function show(Task $task)
     {
-        $task = Task::find($taskId);
         return view('task.show')->with('task', $task);
+    }
+
+    public function create()
+    {
+        return view('task.create');
+    }
+
+    public function store()
+    {
+        $this->validate(request(), [
+            'name' => 'required|min:8|max:20',
+            'description' => 'required',
+        ]);
+        $data = request()->all();
+
+        $task = new Task();
+
+        $task->name = $data['name'];
+        $task->description = $data['description'];
+        $task->completed = false;
+
+        $task->save();
+
+        session()->flash('success', 'Task created successfully.');
+
+        return redirect('/tasks');
+    }
+
+    public function edit(Task $task)
+    {
+        return view('task.edit')->with('task', $task);
+    }
+
+    public function update(Task $task)
+    {
+        $this->validate(request(), [
+            'name' => 'required|min:8|max:20',
+            'description' => 'required',
+        ]);
+        $data = request()->all();
+
+        $task->name = $data['name'];
+        $task->description = $data['description'];
+        $task->completed = false;
+
+        $task->save();
+
+        return redirect('/tasks');
+    }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return redirect('/tasks');
     }
 }

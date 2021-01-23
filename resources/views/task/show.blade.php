@@ -1,37 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Task Item</title>
-</head>
+@section('title')
+<title>{{ $task->name }}</title>
+@endsection
 
-<body class="container">
+@section('content')
     <h1 class="text-center">Task Item</h1>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
                 <div class="card-header">
-                    Task
-                    <button type="button" class="btn btn-secondary float-right"><i class="fa fa-cog" aria-hidden="false"></i></button>
+                    {{ $task->name }}
+                    <button type="button" class="btn btn-secondary float-right btn-sm"><i class="fa fa-cog" aria-hidden="false"></i></button>
                 </div>
                 <div class="card-body">
-                            {{ $task->name }}
+                    {{ $task->description }}
+                    <br><br>
+                    <a href="/tasks/{{$task->id}}/delete" class="btn btn-danger float-right">Delete</a>
+                    <a href="/tasks/{{$task->id}}/edit" class="btn btn-info float-right mx-3">Edit</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://use.fontawesome.com/018356b81e.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
-</body>
-
-</html>
+@endsection

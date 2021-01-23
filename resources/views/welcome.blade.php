@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/cosmo/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Task Manager</title>
-</head>
+@section('title')
+<title>Task Manager App</title>
+@endsection
 
-<body class="container">
-<div class="text-center">
-    <h1>This is the home page</h1>
-    <a href="/tasks">Task Manager</a>
+@section('content')
+<div class="container overflow-hidden">
+  <div class="row gy-5">
+    <div class="col-6 p-5">
+      <div class="p-3 border bg-light text-center"><a href="/tasks" class="btn btn-outline-secondary active" role="button" aria-pressed="true">Tasks</a></div>
+    </div>
+    <div class="col-6 p-5">
+      <div class="p-3 border bg-light"><button type="button" class="btn btn-outline-secondary">Secondary</button></div>
+    </div>
+    <div class="col-6 p-5">
+      <div class="p-3 border bg-light"><button type="button" class="btn btn-outline-secondary">Secondary</button></div>
+    </div>
+    <div class="col-6 p-5">
+      <div class="p-3 border bg-light"><button type="button" class="btn btn-outline-secondary">Secondary</button></div>
+    </div>
+  </div>
 </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+@endsection

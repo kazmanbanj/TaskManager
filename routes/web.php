@@ -20,3 +20,10 @@ Route::get('/', function () {
 
 Route::get('/tasks', [TaskController::class, 'index']);
 Route::get('tasks/{task}', [TaskController::class, 'show']);
+Route::get('new-task', [TaskController::class, 'create']);
+Route::post('store-tasks', [TaskController::class, 'store']);
+
+Route::get('tasks/{task}/edit', [TaskController::class, 'edit']);
+Route::post('tasks/{task}/update-task', [TaskController::class, 'update']);
+
+Route::get('tasks/{task}/delete', [TaskController::class, 'destroy']);
