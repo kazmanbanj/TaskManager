@@ -63,12 +63,26 @@ class TaskController extends Controller
 
         $task->save();
 
+        session()->flash('success', 'Task updated successfully.');
+
         return redirect('/tasks');
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
+
+        session()->flash('delete', 'Task deleted successfully.');
+
+        return redirect('/tasks');
+    }
+
+    public function complete(Task $task)
+    {
+        $task->completed = true;
+        $task->save();
+
+        session()->flash('success', 'Task completed successfully');
 
         return redirect('/tasks');
     }

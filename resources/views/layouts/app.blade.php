@@ -13,7 +13,7 @@
 </head>
 <body class="container">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Task Manager</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,21 @@
         </div>
     </div>
     </nav>
+    <div class="container">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+    </div>
 
+    <div class="container">
+        @if(session()->has('delete'))
+            <div class="alert alert-danger">
+                {{ session()->get('delete') }}
+            </div>
+        @endif
+    </div>
     @yield('content')
 
     <script src="https://use.fontawesome.com/018356b81e.js"></script>
