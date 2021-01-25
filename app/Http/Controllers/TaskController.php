@@ -86,4 +86,9 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function settings()
+    {
+        return view('task.settings');
+    }
 }

@@ -11,7 +11,7 @@
         <div class="card card-default">
             <div class="card-header">
                 Tasks
-                <button type="button" class="btn btn-secondary float-right btn-sm"><i class="fa fa-cog" aria-hidden="false"></i></button>
+                
             </div>
             <div class="card-body">
                 <ul class="list-group">

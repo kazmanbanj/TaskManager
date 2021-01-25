@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/tasks', [TaskController::class, 'index']);
 Route::get('tasks/{task}', [TaskController::class, 'show']);
 Route::get('new-task', [TaskController::class, 'create']);
+Route::get('settings', [TaskController::class, 'settings']);
 Route::post('store-tasks', [TaskController::class, 'store']);
 
 Route::get('tasks/{task}/edit', [TaskController::class, 'edit']);
